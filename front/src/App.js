@@ -29,7 +29,7 @@ class App extends Component {
   }
   
   getAllClients = () => {
-    fetch('http://localhost:5000/')
+    fetch('http://localhost:5000/clients')
         .then(res => res.json())
         .then(res => {
             this.setState({          

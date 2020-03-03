@@ -25,4 +25,17 @@ const addNewServiceClient = (req, res) => {
 
 };
 
-module.exports = { getAllServices, addNewServiceClient }
+
+const getAllWork = (req, res) => {
+	Service.getAllWork((err, results) => {
+		if (err) {
+			res.status(500).json({ message: 'Error getting all the services information' });
+		} else {
+			res.json(results);
+		}
+	});
+
+};
+
+
+module.exports = { getAllServices, addNewServiceClient, getAllWork }

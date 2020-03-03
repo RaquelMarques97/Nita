@@ -47,7 +47,7 @@ class Work extends Component {
     }
 
     render() {
-        console.log(this.state)
+     
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className='new'>
