@@ -1,0 +1,44 @@
+
+.title_new_service {
+    padding-top:200px;
+}
+
+.newservice {
+    margin-top:100px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  
+    
+}
+
+.newservice div {
+    justify-content:space-around;
+   
+}
+
+.newservice input {    
+    width:200px;
+    border-radius:6px;
+    margin:30px;
+    height:50px;
+    background-color:gray;
+       
+}
+
+.newservice select {
+    height:50px;
+    border-radius:6px;
+    margin:30px;
+    width:200px;
+}
+
+.button_service {
+    border-radius:6px;
+   
+}
+
+.newservice label {
+    font-size:30px;
+    
+}

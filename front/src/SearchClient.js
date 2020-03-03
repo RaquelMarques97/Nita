@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Searchclient.css';
 
 class SearchClient extends Component {
     constructor(props) {
@@ -41,12 +42,12 @@ class SearchClient extends Component {
 
     servicesList = () => {
         if (this.state.selected_client_id === 'ALL') {
-            return (this.state.work.map(work => <p style={{color:'white', fontSize:'20px'}}>{work.client}<br></br>{work.service}= {work.price} euro</p>)
+            return (this.state.work.map(work => <p style={{color:'white', fontSize:'20px'}}>{work.client} || {work.service} = {work.price} euro</p>)
             )
 
         } else {
             return (this.state.work.filter(work => work.client_id === +this.state.selected_client_id)
-                .sort().map(item => <p style={{color:'white', fontSize:'20px'}}>{item.service}||{item.price} euro</p> )
+                .sort().map(item => <p style={{color:'white', fontSize:'20px'}}>{item.service} = {item.price} euro</p> )
             )
         }
     }
@@ -58,8 +59,8 @@ class SearchClient extends Component {
 
             <>
                 <div>
-                    <h4 style={{ paddingTop: '50px' }}>Conta de Cliente</h4>
-                    <select name="selected_client_id"
+                    <p style={{ paddingTop: '200px' }}>Conta de Cliente</p>
+                    <select className='client_account'  name="selected_client_id"
                         type="text"
                         style={{ width: '200px' }}
                         onChange={this.updateData}>

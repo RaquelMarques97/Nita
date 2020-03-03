@@ -7,6 +7,7 @@ import SearchClient from './SearchClient.js';
 import Work from './Work.js'
 import { Switch, HashRouter, Route } from 'react-router-dom';
 
+
 class App extends Component {
   constructor(props) {
     super(props);

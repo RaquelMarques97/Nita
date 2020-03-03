@@ -1,0 +1,17 @@
+.newclient {
+    margin-top:250px;
+}
+
+.client_name {
+    font-size:30px;
+}
+
+.newclient input {
+    border-radius:6px;
+    background-color:gray;
+}
+
+.button_client {
+    border-radius:6px;
+   
+}
