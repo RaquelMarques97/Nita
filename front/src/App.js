@@ -50,6 +50,16 @@ class App extends Component {
         })
 }
 
+getAllWorks = () => {
+  fetch('http://localhost:5000/works')
+      .then(res => res.json())
+      .then(res => {
+          this.setState({
+            services: res     
+          });
+
+      })
+}
 
 
   render() {
