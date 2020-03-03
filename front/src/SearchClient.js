@@ -10,14 +10,13 @@ class SearchClient extends Component {
         };
 
         this.getAllWorks = this.getAllWorks.bind(this);
+        this.servicesList = this.servicesList.bind(this);
     }
 
 
     componentDidMount() {
-        this.getAllWorks();
-        this.servicesList();
-        
-            
+        this.getAllWorks();           
+                    
     }
 
 
@@ -42,33 +41,30 @@ class SearchClient extends Component {
 
     servicesList = () => {
         if (this.state.selected_client_id === 'ALL') {
-            return (this.state.work.map(work => <p>{work.client}<br></br>{work.service}= {work.price} euro</p>)
+            return (this.state.work.map(work => <p style={{color:'white', fontSize:'20px'}}>{work.client}<br></br>{work.service}= {work.price} euro</p>)
             )
 
         } else {
-            return (this.state.work.filter(work => {
-                return work.client_id === this.state.selected_client_id
-            })
-                .sort().map(item => <p>{item}</p> )
+            return (this.state.work.filter(work => work.client_id === +this.state.selected_client_id)
+                .sort().map(item => <p style={{color:'white', fontSize:'20px'}}>{item.service}||{item.price} euro</p> )
             )
         }
     }
 
 
     render() {
-        console.log(this.state.work)
-
+        
         return (
 
             <>
                 <div>
-                    <h4 style={{ paddingTop: '50px' }}>Escolha um cliente:</h4>
+                    <h4 style={{ paddingTop: '50px' }}>Conta de Cliente</h4>
                     <select name="selected_client_id"
                         type="text"
                         style={{ width: '200px' }}
                         onChange={this.updateData}>
-                        
-                        <option  value='ALL'>ALL</option>
+                        <option >Escolha um cliente</option>
+                        <option value='ALL'>ALL</option>
                         {[...new Set(this.props.clients
                             .map(client => <option value={client.id}
                                 style={{ margin: '0px' }}
