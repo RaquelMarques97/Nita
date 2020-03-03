@@ -4,39 +4,23 @@ class SearchClient extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            clients: []
+            client: ""
         };
     }
 
-    componentDidMount() {
-        this.getAllData();
-
-    }
-
-    getAllData = () => {
-        fetch('http://localhost:5000/')
-            .then(res => res.json())
-            .then(res => {
-                this.setState({
-                    clients: res
-                });
-
-            })
-    }
-
+ 
     render() {
 
         return (
 
-            <div className='search' >
-                <h5>Escolha um cliente:</h5>
-                {
-                    this.state.clients.map((el, i) => {
-                        return (
-                            <p key={i}>{(el.name)}</p>)
-                    })
-                }
-            </div >
+            
+            <div>
+                <h4 style={{paddingTop:'50px'}}>Escolha um cliente:</h4>
+                {[...new Set(this.props.clients
+                    .map(client => client.name))].sort().map((name =>
+                        <h6 style={{margin:'0px'}} id="client">{name}</h6>))}
+
+            </div>
         )
     }
 }

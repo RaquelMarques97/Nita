@@ -6,11 +6,9 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
 const router = require('./routes/index.js');
-
 const cors = require('cors');
 
 app.use(cors())
-
 
 
 // set up the application
@@ -21,10 +19,6 @@ app.use(express.static(__dirname + '/public'));
 
 // implement the API part
 app.use('/', router);
-
-//app.use('/newclient', newclient); //where newclient is imported
-//app.use('/newservice', newservice); //where newservice is imported
-//app.use('/work', work); //where work is imported
 
 /// in case path is not found, return the 'Not Found' 404 code
 app.use(function (req, res, next) {
