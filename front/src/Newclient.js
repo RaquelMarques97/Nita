@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import './Newclient.css';
 
 
 class Newclient extends Component {
@@ -33,17 +34,17 @@ class Newclient extends Component {
           })
             .then(res => res.json());  
         
-        e.preventDefault();
+     
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <div className='new'>
+                <div className='newclient'>
                     <p>Inserir Cliente Novo</p>
-                    <label>Nome:</label>
+                    <label className='client_name'>Nome:</label>
                     <input type="text" name="name" value={this.state.name} onChange={this.updateDataField}></input>
-                    <button type='submit' value="Submit"> gravar</button>
+                    <button className='button_client' type='submit' value="Submit"> gravar</button>
                 </div>
             </form>
         )
