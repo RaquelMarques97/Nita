@@ -1,4 +1,18 @@
 .client_account {
+    margin-top:250px;
+}
+
+
+.client_select {
     height:50px;
     border-radius: 6px;
+}
+
+
+
+@media (max-width:740px){
+    .client_account {
+        margin-top:150px;
+    }
+
 }
