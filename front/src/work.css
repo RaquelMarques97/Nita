@@ -42,3 +42,10 @@
     font-size:30px;
     
 }
+
+@media (max-width:740px){
+    .title_new_service {
+       padding-top:100px;
+    }
+
+}

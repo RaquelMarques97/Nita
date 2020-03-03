@@ -59,13 +59,13 @@ class SearchClient extends Component {
 
             <>
                 <div>
-                    <p style={{ paddingTop: '200px' }}>Conta de Cliente</p>
-                    <select className='client_account'  name="selected_client_id"
+                    <p className='client_account'>Conta de Cliente</p>
+                    <select className='client_select'  name="selected_client_id"
                         type="text"
                         style={{ width: '200px' }}
                         onChange={this.updateData}>
                         <option >Escolha um cliente</option>
-                        <option value='ALL'>ALL</option>
+                        <option value='ALL'>TODOS</option>
                         {[...new Set(this.props.clients
                             .map(client => <option value={client.id}
                                 style={{ margin: '0px' }}
