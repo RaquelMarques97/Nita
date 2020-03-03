@@ -13,14 +13,13 @@ Client.getAllClients = (callback) => {
 };
 
 // add new client
-// Client.AddNewClient = () => {
-// 	connection.query('INSERT INTO client (name) VALUES (?)', [req.body.name],
-// 		function (error, results, fields) {
-// 			if (error)
-// 				res.status(500).json({ flash: error.message });
-// 			else
-// 				res.status(200).json({ flash: "Cliente adicionado!" });
-// 		});
-// }
+Client.addNewClient = (name, callback) => {
+	connection.query('INSERT INTO client SET name=?',
+		name,
+		(err, results, fields) => {
+			callback(err, results, fields);
+		}
+	);
+};
 
 module.exports = Client;

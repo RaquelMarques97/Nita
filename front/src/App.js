@@ -4,7 +4,6 @@ import Navbar from './Navbar.js';
 import Homepage from './Homepage.js';
 import Newclient from './Newclient.js';
 import SearchClient from './SearchClient.js';
-import NewService from './NewService.js'
 import Work from './Work.js'
 import { Switch, HashRouter, Route } from 'react-router-dom';
 
@@ -12,15 +11,49 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clients: []
+      clients: [],
+      services: [],
+      services_client: []
     };
+
+    this.getAllClients = this.getAllClients.bind(this);
+    this.getAllServices = this.getAllServices.bind(this);
   }
+
 
   componentDidMount() {
+    this.getAllClients();
+    this.getAllServices();
+
+
+  }
+  
+  getAllClients = () => {
+    fetch('http://localhost:5000/')
+        .then(res => res.json())
+        .then(res => {
+            this.setState({          
+              clients: res
+            });
+  
+        })
   }
 
-  render() {
+  getAllServices = () => {
+    fetch('http://localhost:5000/services')
+        .then(res => res.json())
+        .then(res => {
+            this.setState({
+              services: res     
+            });
 
+        })
+}
+
+
+
+  render() {
+ 
     return (
 
       <HashRouter basename="/Nita">
@@ -28,9 +61,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/newclient" component={Newclient} />
-          <Route exact path="/searchclient" component={() => <SearchClient data={this.state.clients} />} />
-          <Route exact path="/newservice" component={NewService} />
-          <Route exact path="/work" component={Work} />
+          <Route exact path="/searchclient" component={() => <SearchClient clients={this.state.clients}/>} />
+          <Route exact path="/work" component={() => <Work services={this.state.services} clients={this.state.clients} />} />
         </Switch>
       </HashRouter>
 

@@ -5,3 +5,5 @@ const showHomepage = (req, res) => {
 const showAllClients = (req, res) => {
 	res.render('http://localhost:3000/clientlist');
 };
+
+

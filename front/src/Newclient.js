@@ -6,7 +6,7 @@ class Newclient extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
+            name: ""
 
         }
         this.updateDataField = this.updateDataField.bind(this);
@@ -22,25 +22,18 @@ class Newclient extends Component {
         });
     }
     handleSubmit = (e) => {
-
-        fetch("/newclient",
-            {
-                method: 'POST',
-                headers: new Headers({
-                    'Content-Type': 'application/json'
-                }),
-                body: JSON.stringify(this.state),
-            })
-            .then(res => res.json())
-            .then(
-                res => this.setState({ "flash": res.flash }),
-                err => this.setState({ "flash": err.flash })
-
-            );
-
-
+        console.log(this.state)
+        fetch('http://localhost:5000/',
+        {
+            method: 'POST',
+            headers: new Headers({
+              'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify(this.state),
+          })
+            .then(res => res.json());  
+        
         e.preventDefault();
-
     }
 
     render() {
@@ -49,7 +42,7 @@ class Newclient extends Component {
                 <div className='new'>
                     <p>Inserir Cliente Novo</p>
                     <label>Nome:</label>
-                    <input type="text" name="name" value={this.state.name} onChange={this.updateDataField} ></input>
+                    <input type="text" name="name" value={this.state.name} onChange={this.updateDataField}></input>
                     <button type='submit' value="Submit"> gravar</button>
                 </div>
             </form>
