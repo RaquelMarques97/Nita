@@ -22,4 +22,26 @@ Service.addNewServiceClient = (serviceInfo, callback) => {
 	);
 };
 
+
+// get list of all services per client
+Service.getAllWork = (callback) => {
+	connection.query(
+		`SELECT
+		service.name AS 'service',
+		client.name AS 'client',
+		client.id AS 'client_id',
+		service.price AS 'price'
+		FROM
+		service, client, client_service
+		WHERE
+		service.id = client_service.service_id
+		AND
+		client.id = client_service.client_id
+		
+		`, (err, results) => {
+		callback(err, results);
+	});
+};
+
 module.exports = Service;
+

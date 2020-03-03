@@ -26,6 +26,7 @@ const addNewClient = (req, res) => {
 			return;
 		} else {
 			res.sendStatus(200);
+			return;
 		}
 	});
 
