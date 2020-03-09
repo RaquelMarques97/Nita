@@ -5,6 +5,7 @@ import Homepage from './Homepage.js';
 import Newclient from './Newclient.js';
 import SearchClient from './SearchClient.js';
 import Work from './Work.js'
+import Service from './Service.js';
 import { Switch, HashRouter, Route } from 'react-router-dom';
 
 
@@ -13,8 +14,8 @@ class App extends Component {
     super(props);
     this.state = {
       clients: [],
-      services: [],
-      services_client: []
+      services: []
+  
     };
 
     this.getAllClients = this.getAllClients.bind(this);
@@ -64,6 +65,7 @@ class App extends Component {
           <Route exact path="/newclient" component={Newclient} />
           <Route exact path="/searchclient" component={() => <SearchClient clients={this.state.clients}/>} />
           <Route exact path="/work" component={() => <Work services={this.state.services} clients={this.state.clients} />} />
+          <Route exact path="/work/service" component={() => <Service services={this.state.services} clients={this.state.clients} />} />
         </Switch>
       </HashRouter>
 

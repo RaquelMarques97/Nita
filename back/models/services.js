@@ -30,7 +30,8 @@ Service.getAllWork = (callback) => {
 		service.name AS 'service',
 		client.name AS 'client',
 		client.id AS 'client_id',
-		service.price AS 'price'
+		service.price AS 'price',
+		client_service_id 
 		FROM
 		service, client, client_service
 		WHERE
@@ -42,6 +43,18 @@ Service.getAllWork = (callback) => {
 		callback(err, results);
 	});
 };
+
+// delete service
+Service.deleteWork = (workId, callback) => {
+	connection.query('DELETE FROM client_service WHERE client_service_id=?',
+		workId,
+		(err, results) => {
+			callback(err, results);
+		}
+	);
+};
+
+
 
 module.exports = Service;
 

@@ -1,0 +1,59 @@
+
+.service-container{
+    display:flex;
+}
+.service {
+    font-size: 30px;
+    color:white;
+    height:5px;
+    padding-right:200px;
+    margin:0;
+    width:100vw;
+    text-align:left;
+    margin-left:20vw;
+ 
+
+    
+}
+
+.button_delete {   
+    border-radius: 6px;
+    padding:10px;
+    font-size: 20px;
+    width:auto;
+    height:40px;
+    float:right;
+    margin-right:20vw;
+    
+   
+}
+
+form {
+   width:100vw;
+}
+
+
+@media (max-width:840px){
+   .service {
+       font-size: 15px;
+       height:1px;
+       margin-left:auto;
+       width:100vw;
+       text-align:left;
+       
+   }
+
+   .button_delete { 
+    font-size: 15px;
+    width:auto;
+    height:25px;
+    margin-right:auto;
+    padding:0px;
+    
+    
+
+  
+}
+
+
+}

@@ -4,7 +4,7 @@ use nita;
 CREATE TABLE client
 (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(90) 
+    name VARCHAR(90) UNIQUE
      
 );
 

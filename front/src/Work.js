@@ -51,7 +51,7 @@ class Work extends Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <div class='title_new_service'>
+                <div className='title_new_service'>
                     <p>Inserir Pedido Novo</p>
                 </div>
                 <div className='newservice'>
@@ -61,29 +61,32 @@ class Work extends Component {
                         <input type="date"
                             name="date"
                             value={this.state.date}
-                            onChange={this.updateDataField} >
+                            onChange={this.updateDataField} required>
                         </input>
                     </div>
                     <div>
-                        <label>Cliente</label>
+                        <label>Cliente:</label>
                         <select name="client_id"
                             type="text"
-                            style={{ width: '200px' }}
-                            onChange={this.updateDataField}>
+                            style={{ width: '200px', fontSize: '20px' }}
+                            onChange={this.updateDataField} required>
+                            <option>Escolha um cliente</option>
                             {this.props.clients
                                 .map(client =>
-                                    <option value={client.id} style={{ fontSize: '30px' }}>
+                                    <option value={client.id} style={{ fontSize: '30px' }} key={client.id}>
                                         {client.name}
                                     </option>)}
                         </select>
                     </div>
                     <div>
-                        <label>Serviço</label>
+                        <label>Serviço:</label>
                         <select name="service_id"
+                            style={{ width: '200px', fontSize: '20px' }}
                             type="text"
-                            onChange={this.updateDataField}>
+                            onChange={this.updateDataField} required>
+                            <option>Escolha um serviço</option>
                             {[...new Set(this.props.services
-                                .map(service => <option value={service.id} style={{ fontSize: '30px' }}>
+                                .map(service => <option value={service.id} key={service.id} style={{ fontSize: '30px' }}>
                                     {service.name}
                                 </option>))]}
                         </select>
@@ -92,7 +95,7 @@ class Work extends Component {
 
                 </div>
                 <div>
-                    <button class='button_service' type='submit' value="Submit"> gravar</button>
+                    <button className='button_service' type='submit' value="Submit"> gravar </button>
                 </div>
             </form>
         )

@@ -25,16 +25,16 @@ class Newclient extends Component {
     handleSubmit = (e) => {
         console.log(this.state)
         fetch('http://localhost:5000/clients',
-        {
-            method: 'POST',
-            headers: new Headers({
-              'Content-Type': 'application/json'
-            }),
-            body: JSON.stringify(this.state),
-          })
-            .then(res => res.json());  
-        
-     
+            {
+                method: 'POST',
+                headers: new Headers({
+                    'Content-Type': 'application/json'
+                }),
+                body: JSON.stringify(this.state),
+            })
+            .then(res => res.json());
+
+
     }
 
     render() {

@@ -27,6 +27,7 @@ const addNewServiceClient = (req, res) => {
 
 
 const getAllWork = (req, res) => {
+
 	Service.getAllWork((err, results) => {
 		if (err) {
 			res.status(500).json({ message: 'Error getting all the services information' });
@@ -37,5 +38,20 @@ const getAllWork = (req, res) => {
 
 };
 
+const deleteWork = (req, res) => {
+	Service.deleteWork(req.params.id, (err, results) => {
+		if (err) {
+			console.log(err);
+			res.status(500).json({ message: 'Error deleting service' });
+			return;
+		} else {
+			res.sendStatus(204);
+			return;
+		}
+	});
 
-module.exports = { getAllServices, addNewServiceClient, getAllWork }
+};
+
+
+
+module.exports = { getAllServices, addNewServiceClient, getAllWork, deleteWork }
