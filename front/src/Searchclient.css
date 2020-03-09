@@ -1,18 +1,33 @@
 .client_account {
-    margin-top:250px;
+    margin-top:50px;
+    
 }
 
 
 .client_select {
     height:50px;
     border-radius: 6px;
+    margin-bottom:30px;
+    font-size: 20px;
+}
+
+.services_list {
+    text-align:center;
+}
+
+.divida {
+    margin-top:70px;
+    color:white;
+    font-size:20px;
+    text-align:right;
+    margin-right:30px;
+   
 }
 
 
-
-@media (max-width:740px){
+@media (max-width:840px){
     .client_account {
-        margin-top:150px;
+        margin-top:10px;
     }
 
 }

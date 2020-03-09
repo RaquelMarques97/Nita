@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getAllClients, addNewClient} = require('../controllers/client-controller');
-const { getAllServices, addNewServiceClient, getAllWork} = require('../controllers/service-controller');
+const { getAllServices, addNewServiceClient, getAllWork, deleteWork} = require('../controllers/service-controller');
 
 /* GET clients */
 router.get('/clients', getAllClients);
@@ -17,5 +17,9 @@ router.post('/newservice', addNewServiceClient);
 
 /* GET clients services */
 router.get('/work', getAllWork);
+
+/* DELETE client service */
+router.delete('/work/:id', deleteWork);
+
 
 module.exports = router;
